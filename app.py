@@ -207,14 +207,22 @@ correct = 0
 incorrect = 0
 tries = 0
 
+print('Welcome to the game where you guess the state capitals!')
+welcome_question = input('Do you want to begin? [y/n] ').lower()
+
 while tries < 51:
 
     if tries == 50:
-        print(f'You have gone through all the states, the game is now over. Your final score was {correct} correct, and {incorrect} incorrect')
+        end_message = input(f'You have gone through all the states, the game is now over. Your final score was {correct} correct, and {incorrect} incorrect. Would you like to play again? [y/n]' ).lower()
+        
+        if end_message == 'y':
+            correct = 0
+            incorrect = 0
+            tries = 0
+        else:
+            print('You are missing out!')
 
-    print('Welcome to the game where you guess the state capitals!')
-    welcome_question = input('Do you want to begin? [y/n] ').lower()
-
+    
     if welcome_question == 'y':
         random.shuffle(state_capitals)
         
