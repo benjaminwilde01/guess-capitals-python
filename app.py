@@ -203,3 +203,15 @@ state_capitals = [
   }
 ]
 
+correct = 0
+incorrect = 0
+sum = 0
+
+print('Welcome to the game where you guess the state capitals!')
+welcome_question = input('Do you want to begin? [y/n] ').lower()
+
+if welcome_question == 'y':
+    random.shuffle(state_capitals)
+    print(state_capitals[0:5])
+else:
+    print('You are missing out')
