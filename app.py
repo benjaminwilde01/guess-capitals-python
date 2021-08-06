@@ -214,12 +214,22 @@ if welcome_question == 'y':
     random.shuffle(state_capitals)
     
     for state in state_capitals:
-        question = input(f'What is the state capital of {state["name"]}? ').lower()
+        question = input(f'What is the state capital of {state["name"]}? ').title()
         if question == state["capital"]:
             print(f'Correct! You guessed {question}')
-        
+            tries += 1
+            correct += 1
+            print(f'You have correctly guessed {correct} states')
+            print(f'You have inccorrectly guessed {incorrect} states')
+            print(f'You have guessed {tries} total times')
         else: 
             print(f'Sadly, {question} is incorrect. Try again!')
-
+            incorrect -= 1
+            tries += 1
+            print(f'You have correctly guessed {correct} states')
+            print(f'You have inccorrectly guessed {incorrect} states')
+            print(f'You have guessed {tries} total times')
+            
+            
 else:
     print('You are missing out')
