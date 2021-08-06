@@ -205,13 +205,21 @@ state_capitals = [
 
 correct = 0
 incorrect = 0
-sum = 0
+tries = 0
 
 print('Welcome to the game where you guess the state capitals!')
 welcome_question = input('Do you want to begin? [y/n] ').lower()
 
 if welcome_question == 'y':
     random.shuffle(state_capitals)
-    print(state_capitals[0:5])
+    
+    for state in state_capitals:
+        question = input(f'What is the state capital of {state["name"]}? ').lower()
+        if question == state["capital"]:
+            print(f'Correct! You guessed {question}')
+        
+        else: 
+            print(f'Sadly, {question} is incorrect. Try again!')
+
 else:
     print('You are missing out')
